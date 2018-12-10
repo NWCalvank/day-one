@@ -1,8 +1,9 @@
 FROM node:11
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
+COPY webpack.config.js ./
 
 RUN npm install
 
