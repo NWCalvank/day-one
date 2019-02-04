@@ -8,7 +8,6 @@ to the auto-generated Vue app with all options selected.
 Start build in watch mode with hot-reload:
 
 ```
-$ npm install --only=dev
 $ npm run docker:start
 ```
 
