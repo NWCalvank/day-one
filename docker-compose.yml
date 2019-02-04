@@ -1,0 +1,12 @@
+version: '3'
+services:
+   web:
+      build: .
+      container_name: web
+      image: vue-app
+      volumes:
+         - ./src:/app/src
+         - ./public:/app/public
+      ports:
+         - "8080:8080"
+      tty: true
