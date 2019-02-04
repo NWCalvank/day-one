@@ -1,22 +1,30 @@
-# Creating New Projects
+## GCP Development Environment
 
-Each branch in this repo is set up as a template for a different kind of
-project. From the master branch, you can easily create a new project. Beyond a
-simple git clone, this will also set up a few nice-to-haves for you, such as
-clearing and re-initializing the git repo, updating the package.json, and
-installing all of the dependencies (including project-specific VIM
-integrations).
+This template provides a development environment for writing Cloud Functions in
+bleeding edge JS. Docker is configured out-of-the-box, and an Express server is
+provided for testing your endpoints locally.
 
-Simply call the `init_project` shell script with the path where you would like
-the git clone to occur. You will be prompted through the rest of the process.
+### Getting Started
 
-```bash
-$ ./init_project.sh ~/path/to/clone/into
+Start build in watch mode, run unit tests on-save, and expose endpoints for
+local development:
+
+```
+$ npm run docker:start
+$ npm run docker:server
 ```
 
-The recommended use of this repo would be to clone the master branch somewhere
-out of the way (for example, `~/Code/`), and initialize new projects from there.
+Stop running app and clean up images:
 
-# Requirements
+```
+$ npm run docker:stop
+$ npm run docker:clean
+```
 
-1. Node.js
+Running on host without Docker:
+
+```
+$ npm install
+$ npm run start
+$ npm run server
+```

@@ -5,7 +5,11 @@
 
 # Development
 node_modules
+dist
+build.zip
+.env
 *.swp
+.vimrc
 
 # Icon must end with two \r
 Icon
