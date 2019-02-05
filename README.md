@@ -34,20 +34,24 @@ $ cd ./development-environment && ./setup.sh
 
 Requires Docker installation on your machine.
 
-By running the application inside of a Docker container with a volume mount, the files can be edited on the host machine without being forced to install any dependencies onto the host. The commands are standard for those familiar with Docker, but I have added `npm script` aliases for convenience.
+By running the application inside of a Docker container with a volume mount,
+the files can be edited on the host machine without being forced to install any
+dependencies onto the host. The commands are standard for those familiar with
+Docker, but I have added `npm script` aliases for convenience.
 
 - Start: `npm run docker:start`
 - Stop (and remove container): `npm run docker:stop`
 - Clean (remove image): `npm run docker:clean`
 - Enter running container: `npm run docker:enter`
 
-The easiest way to install new dependecies when running the app inside of Docker is to enter the running container. The flow might look something like this:
+The easiest way to install new dependecies when running the app inside of
+Docker is to use the provided npm script. This will install (or uninstall) the
+dependency inside of the running container and then update the package.json and
+package-lock.json files on the host.
 
 ```bash
-$ npm run docker:start
-$ npm run docker:enter
-$ npm i express --save-dev
-$ exit
+$ npm run docker:install express --save
+$ npm run docker:uninstall express --save
 ```
 
 # Development
