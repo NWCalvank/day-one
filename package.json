@@ -5,10 +5,17 @@
   "scripts": {
     "build": "vue-cli-service build",
     "docker:clean": "docker rmi vue-app",
+    "docker:install": "docker exec app npm install",
+    "docker:uninstall": "docker exec app npm uninstall",
     "docker:start": "docker-compose up",
     "docker:stop": "docker-compose down",
     "lint": "vue-cli-service lint",
-    "serve": "vue-cli-service serve"
+    "postdocker:install": "command -v docker && npm run sync-deps",
+    "postdocker:uninstall": "command -v docker && npm run sync-deps",
+    "serve": "vue-cli-service serve",
+    "sync-deps": "npm run sync-pkg && npm run sync-pkg-lock",
+    "sync-pkg": "docker cp app:/app/package.json ./package.json",
+    "sync-pkg-lock": "docker cp app:/app/package-lock.json ./package-lock.json"
   },
   "dependencies": {
     "vue": "^2.5.17",
